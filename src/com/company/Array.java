@@ -120,7 +120,7 @@ public class Array {
                 p = i;
             }
         }
-        System.out.println("Модуль самого длинного числа в шестнадцаетричном представлении: " + max);
+        System.out.println("Cамое длинное число в шестнадцаетричном представлении: " + max);
         System.out.println("Индекс числа: " + p);
     }
     }
