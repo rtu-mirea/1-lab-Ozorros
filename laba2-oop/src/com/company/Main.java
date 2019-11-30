@@ -2,7 +2,7 @@ package com.company;
 import java.util.Scanner;
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите строку");
         String text = in.nextLine();
@@ -17,13 +17,17 @@ public class Main {
             num = in.nextInt();
             switch (num) {
                 case 1:
-                    System.out.println("Макс. число: " + str.naxojdmax());
-                    System.out.println("Точность 2 знака после запятой:" + str.izmstroky());
-                    System.out.println("Строка прописных :"+ str.prop());
-                    System.out.print("Введите символ: ");
-                    text = in.next();
-                    char simv = text.toCharArray()[0];
-                    System.out.println("Количество слов начинающихся с символа " +  simv + " : " + str.skolkoslov(simv));
+                    if(str.naxojdmax() != null){
+                        System.out.println("Макс. число: " + str.naxojdmax());
+                        System.out.println("Точность 2 знака после запятой:" + str.izmstroky());
+                        System.out.println("Строка прописных :" + str.prop());
+                        System.out.print("Введите символ: ");
+                        text = in.next();
+                        char simv = text.toCharArray()[0];
+                        System.out.println("Количество слов начинающихся с символа " + simv + " : " + str.skolkoslov(simv));
+                    } else {
+                        throw new Exception("Чисел не найдено");
+                    }
                     break;
                 case 2:
                     System.out.println("Точность 2 знака после запятой:" + str1.izmenstroki());

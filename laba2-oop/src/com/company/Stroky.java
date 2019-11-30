@@ -12,7 +12,7 @@ public class Stroky {
 
 
         public  String naxojdmax() {
-
+                boolean hasFound = false;
                 double max = -922337203685477580.0d;
                 double digit = 0;
                 for (String word : text.split(" ")) {
@@ -20,12 +20,14 @@ public class Stroky {
                                 digit = Double.parseDouble(word);
                                 if (digit > max)
                                         max = digit;
+                                        hasFound = true;
                         } catch(NumberFormatException e) {
+                                hasFound = false;
                         }
                 }
-                if (max !=-922337203685477580.0)
+
+                if(!hasFound ) return null;
                 return Double.toString(max);
-                return  "Чисел не найдено";
         }
         public String izmstroky(){
 
@@ -58,13 +60,15 @@ public class Stroky {
                 }
                 return propisn;
         }
-        public String skolkoslov(char simv) {
+        public String skolkoslov(char simv)
+        {
                 int counter = 0;
                 for (String word : text.split(" ")) {
-                        if (word.toCharArray()[0] == simv)
+                        if (word.startsWith(String.valueOf(simv)))
                                 counter++;
                 }
                 return Integer.toString(counter);
         }
+        }
 
-}
+
